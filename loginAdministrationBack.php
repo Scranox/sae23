@@ -9,6 +9,8 @@ $username=$_SESSION["username"];
 $_SESSION["auth"]=FALSE;
 
 if (!empty($motdepasse)){
+    echo "<script type='text/javascript'>document.location.replace('erreur.php');</script>";
+} else {
     include ("mysql.php");
 
 	$requete = "SELECT `login`, `mdp` FROM `administration`";
@@ -31,8 +33,6 @@ if (!empty($motdepasse)){
         unset($_SESSION); 
         mysqli_close($id_bd);
     }
-} else {
-    echo "<script type='text/javascript'>document.location.replace('erreur.php');</script>";
 }
 
 ?>
