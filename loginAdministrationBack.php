@@ -6,7 +6,7 @@ $_SESSION["password"]=$_REQUEST["password"];  // Récupération du mot de passe
 $motdepasse=$_SESSION["password"];
 $_SESSION["auth"]=FALSE;
 
-if (!isset($motdepasse)){
+if (!empty($motdepasse)){
     echo "cool";
 } else {
     echo "nein";
