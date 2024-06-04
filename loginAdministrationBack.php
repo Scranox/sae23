@@ -7,9 +7,9 @@ $motdepasse=$_SESSION["password"];
 $_SESSION["auth"]=FALSE;
 
 if (!isset($motdepasse)){
-    echo "cool"
+    echo "cool";
 } else {
-    echo "nein"
+    echo "nein";
 }
 
 ?>
