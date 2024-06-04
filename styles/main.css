@@ -1,0 +1,25 @@
+::-webkit-scrollbar {
+	width: 8px;
+}
+  
+::-webkit-scrollbar-track {
+	background: #151c27;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #DDDDDD;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #BBB;
+}
+
+html{
+    background-color: #151c27;
+    color: #DDDDDD;
+}
+
+a{
+    color: pink;
+}
