@@ -21,7 +21,7 @@ if (!empty($motdepasse)){
         if ($password==$ligne[1]){
             $_SESSION["auth"]=TRUE;		
             mysqli_close($id_bd);
-		    echo "<script type='text/javascript'>document.location.replace('choix_type.php');</script>";
+		    echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
         }	
 	}
 	else
@@ -32,7 +32,7 @@ if (!empty($motdepasse)){
         mysqli_close($id_bd);
     }
 } else {
-    echo "<script type='text/javascript'>document.location.replace('login_error.php');</script>";
+    echo "<script type='text/javascript'>document.location.replace('erreur.php');</script>";
 }
 
 ?>
