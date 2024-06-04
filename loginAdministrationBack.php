@@ -11,6 +11,7 @@ $_SESSION["auth"]=FALSE;
 if (!empty($motdepasse)){
     echo "<script type='text/javascript'>document.location.replace('erreur.php');</script>";
 } else {
+    echo "test";
     include ("mysql.php");
 
 	$requete = "SELECT `login`, `mdp` FROM `administration`";
@@ -18,7 +19,7 @@ if (!empty($motdepasse)){
 		or die("Execution de la requete impossible : $requete");
 
 	$ligne = mysqli_fetch_row($resultat);
-    echo "test";
+    
 	if ($username==$ligne[0])
 	{
         if ($password==$ligne[1]){
