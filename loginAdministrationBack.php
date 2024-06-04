@@ -14,12 +14,15 @@ if (!empty($motdepasse)){
     include ("mysql.php");
 
 	$requete = "SELECT `login`, `mdp` FROM `administration`";
+    
 	$resultat = mysqli_query($id_bd, $requete)
 		or die("Execution de la requete impossible : $requete");
 
+    echo "$resultat";
+
 	$ligne = mysqli_fetch_row($resultat);
     
-    echo "$ligne";
+    
 
 	if ($username==$ligne[0])
 	{
