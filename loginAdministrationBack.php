@@ -18,6 +18,7 @@ if (!empty($motdepasse)){
 		or die("Execution de la requete impossible : $requete");
 
 	$ligne = mysqli_fetch_row($resultat);
+    echo $ligne
 	if ($username==$ligne[0])
 	{
         if ($password==$ligne[1]){
