@@ -1,3 +1,38 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Montserrat;
+	font-style: bold;
+    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Montserrat;
+	font-style: italic;
+    src: url("../fonts/Montserrat-Italic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: OpenDyslexic;
+    src: url("../fonts/OpenDyslexic-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: OpenDyslexic;
+	font-style: bold;
+    src: url("../fonts/OpenDyslexic-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: OpenDyslexic;
+	font-style: italic;
+    src: url("../fonts/OpenDyslexic-Italic.otf") format("opentype");
+}
+
+
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -18,6 +53,7 @@
 html{
     background-color: #151c27;
     color: #DDDDDD;
+	font-family: Montserrat;
 }
 
 a{
