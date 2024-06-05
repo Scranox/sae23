@@ -50,7 +50,13 @@
 	background: #BBB;
 }
 
-html{
+body{
+    display: flex;
+	flex-direction: column;
+	min-height: 96vh;
+	margin: 0;
+	padding-left: 15px;
+	line-height: 23px;
     background-color: #151c27;
     color: #DDDDDD;
 	font-family: Montserrat;
@@ -58,4 +64,116 @@ html{
 
 a{
     color: pink;
+}
+
+nav ul{
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+}
+
+nav ul li{
+	float: left;
+}
+
+nav ul li:last-child{
+	border-right: none;
+	float:right;
+}
+
+nav ul li a{
+	display: block;
+	color: #DDDDDD;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+	margin-right: 5px;
+	border-radius: 25px;
+	border: 3px solid #DDDDDD;
+}
+
+nav ul li a:hover{
+	background-color: #DDDDDD;
+	color: #151c27;
+}
+
+h1{
+    text-align: center;
+}
+
+footer{
+	list-style-type: none;
+	margin-top: auto;
+	bottom: 0;
+	width: 100%;
+}
+
+footer ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+footer ul li{	
+	display: inline-block;
+}
+
+#footerleft {	
+	position: absolute;	
+	left: 0;
+	padding-top: 7px;
+	padding-left: 20px;
+}
+
+#footercenter {	
+	display: inline-block;
+	text-align: center;	
+	width: 100%;
+	padding-top: 7px;
+}
+
+#footerright {
+    padding-right: 15px;
+    padding-top: 7px;
+	position: absolute;	
+	right: 0;
+}
+
+@media screen and (max-width: 820px){
+	nav ul li{
+		float: none;
+		width: 100%;
+		border-right: none;
+	}
+
+	nav ul li a{
+		padding: 1px;
+	}
+
+	section#first{
+		padding-top: 300px;
+	}
+	section{
+		padding-top: 5px;
+		padding-right: 15px;
+	}
+	img{
+		max-width: 100%;
+		height: auto;
+    }
+
+	#footerright{
+		display: none;
+	}
+
+	#footercenter{
+		padding-left: 30%;
+		right: 0;
+	}
+
+	#langa, #homea{
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
