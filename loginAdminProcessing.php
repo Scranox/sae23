@@ -12,7 +12,6 @@ ini_set('display_errors', '1');
 
 
 if (empty($password) || empty($username)){
-    // header("Location: ./loginFormAdmin.php?error=1");
     echo "<script type='text/javascript'>document.location.replace('loginFormAdmin.php?error=1');</script>";
     $_SESSION = array();
     session_destroy();
@@ -30,7 +29,6 @@ if (empty($password) || empty($username)){
 	{
         $_SESSION["authenticated"]=TRUE;		
         mysqli_close($id_bd);
-        // header("Location: ./index.php");	
         echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
     } else {
         $_SESSION = array();
