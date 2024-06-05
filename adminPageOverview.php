@@ -1,12 +1,13 @@
 <?php 
 
     session_start();
-    if(isset($_SESSION["authenticated"]) && $_SESSION["authenticated"]==FALSE){
-        header("Location: ./loginFormAdmin.php")
+    if(isset($_SESSION["authenticated"]) == TRUE && $_SESSION["authenticated"] == FALSE){
+        header("Location: ./loginFormAdmin.php");
+        echo "non connecté";
     }
 
-    $username=$_SESSION["username"]
-    echo "$username"
+    $username=$_SESSION["username"];
+    echo "$username";
 
 ?>
 
