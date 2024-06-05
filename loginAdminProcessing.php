@@ -29,7 +29,7 @@ if (empty($password) || empty($username)){
 	{
         $_SESSION["authenticated"]=TRUE;		
         mysqli_close($id_bd);
-        echo "<script type='text/javascript'>document.location.replace('index.php');</script>";
+        echo "<script type='text/javascript'>document.location.replace('./adminPageOverview.php');</script>";
     } else {
         $_SESSION = array();
         session_destroy();

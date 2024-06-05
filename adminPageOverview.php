@@ -1,12 +1,11 @@
 <?php 
 
     session_start();
-    if(isset($_SESSION["authenticated"]) == TRUE && $_SESSION["authenticated"] == FALSE){
-        echo "non connecté";
+    if(!isset($_SESSION["authenticated"])){
+        echo "<script type='text/javascript'>document.location.replace('loginFormAdmin.php');</script>";
+    } else {
+        $username=$_SESSION["username"];
+        echo "$username";
     }
-
-    $username=$_SESSION["username"];
-    echo "$username";
-
 ?>
 
