@@ -1,0 +1,55 @@
+.buildings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buildings ul {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+    grid-template-rows: auto;
+    grid-gap:10px;
+    z-index: 5;
+}
+
+.buildings li {
+    padding: 10px;
+    background: #009DE6;
+    transition: transform .2s; /* Animation */
+    overflow: visible;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.buildings li:hover {
+    transform: scale(0.8); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.buildings li a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.buildings h2 {
+    margin: 0;
+    font-size: 90px;
+    display: block;
+}
+
+.buildings h3 {
+    margin: 0;
+}
+
+#addbutton {
+    background: #00973a;
+}
