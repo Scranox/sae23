@@ -1,0 +1,62 @@
+ul {
+    list-style-type: none;
+	padding: 0;
+}
+
+.buildings {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px;
+}
+
+.building {
+    background: #005C53;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+h2, h4, h5, h3 {
+    margin: 0;
+}
+
+.room {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #008F8C;
+}
+
+.sensors {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    gap: 10px;
+}
+
+.sensors li {
+    background: #9FC131;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.sensors h3 {
+    font-size: 3.5vw;
+}
+
+.sensors h4 {
+    font-size: 1.5vw;
+}
+
+.sensors h5 {
+    font-size: 0.9vw;
+    font-style: italic;
+}
+
+.rooms {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

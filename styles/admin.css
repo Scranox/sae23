@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 5;
 }
 
 .buildings ul {
@@ -12,13 +13,12 @@
 	overflow: hidden;
     grid-template-rows: auto;
     grid-gap:10px;
-    z-index: 5;
+    z-index: 10;
 }
 
 .buildings li {
     padding: 10px;
     background: #009DE6;
-    transition: transform .2s; /* Animation */
     overflow: visible;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -26,10 +26,11 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    z-index: 15;
 }
 
 .buildings li:hover {
-    transform: scale(0.8); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    background: #a40000;
 }
 
 .buildings li a {
@@ -52,4 +53,10 @@
 
 #addbutton {
     background: #00973a;
+}
+
+#addNewBuilding {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
