@@ -19,10 +19,7 @@ if (empty($password) || empty($username)){
     session_destroy();
     unset($_SESSION); 
 } else {
-    $id_bd = mysqli_connect("127.0.0.1", "proc", "prod", "sae23")
-        or die("Connexion au serveur et/ou à la base de données impossible");
-    /* Gestion de l'encodage des caractères */
-    mysqli_query($id_bd, "SET NAMES 'utf8'");
+    include('mysql.php');
     $requete = 'SELECT `utilisateur`, `mdp` FROM `batiments` WHERE lettre_bat = "'.$building.'"';
 	$resultat = mysqli_query($id_bd, $requete)
 		or die("Execution de la requete impossible : $requete");

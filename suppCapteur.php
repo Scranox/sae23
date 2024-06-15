@@ -14,7 +14,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Créer une nouvelle salle</title>
+    <title>Supprimer un capteur</title>
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
     <link rel="stylesheet" type="text/css" href="./styles/admin.css?id=1">
 </head>
@@ -25,19 +25,23 @@
                 echo '<button onclick="location.href = '.'`/logout.php`'.'" id="logoutBtn">Se déconnecter</button>';
             }
         ?>
-        <br><hr><h1>Créer une nouvelle salle</h1><hr><br>
+        <br><hr><h1>Supprimer un capteur</h1><hr><br>
     </header>
-    <form method="post" action="adminAddNewRoomProcessing.php" id="addNewBuilding">
-        <label for="roomname">Nom de la salle</label>
-        <input type="text" name="roomname" maxlength="4" required>
-        <label for="roomtype">Type de salle</label>
-        <input type="text" name="roomtype" maxlength="20" required>
-        <label for="roomcapacity">Capacité de la salle</label>
-        <input type="text" name="roomcapacity" maxlength="11" required>
+    <form method="post" action="adminRemoveSensorProcessing.php" id="addNewBuilding">
+        <label for="sensorname">Capteur à supprimer</label>
+        <select id="sensorname" name="sensorname">
         <?php 
-            echo '<input type="hidden" name="building" value="'.$_GET["building"].'" />';      
+        	include('mysql.php');
+            $result = mysqli_query($id_bd, 'SELECT * FROM capteurs');
+
+            while ($row = mysqli_fetch_assoc($result)) {
+            echo '<option value="'.$row['nom_capteur'].'">'.$row['nom_capteur'].'</option>';
+            }
+        	
         ?>
-        <button id="submitBtn" type="submit">Créer</button>
+            
+        </select>
+        <button type="submit">Supprimer</button>
     </form>
     <footer>
         <hr>

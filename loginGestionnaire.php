@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,16 +13,23 @@
         <link rel="stylesheet" type="text/css" href="./styles/main.css">
     </head>
     <body>
+        <header>
+            <button id="changeFontBtn">Changer la police vers OpenDyslexic</button>
+            <?php 
+            if(isset($_SESSION["authenticated"]) || isset($_SESSION["authenticatedManager"])){
+                echo '<button onclick="location.href = '.'`/logout.php`'.'" id="logoutBtn">Se déconnecter</button>';
+            }
+        ?>
+            <br><hr><h1>Authentification Gestionnaire</h1><hr><br>
+        </header>
         <section id="formAdmin">
-            <h1>Authentification gestionnaire</h1>
             <h2>Veuillez choisir votre bâtiment et remplir les informations</h2>
             <form method="post" action="loginGestionnaireProcessing.php">
                 <label for="building">Choix du bâtiment</label>
                 <select id="building" name="building">
                     <?php 
 
-                        $id_bd = mysqli_connect("127.0.0.1", "proc", "prod", "sae23");
-                        mysqli_query($id_bd, "SET NAMES 'utf8'");
+                        include('mysql.php');
                         $result = mysqli_query($id_bd, 'SELECT * FROM batiments');
 
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -27,14 +40,25 @@
 
                                   
                     ?>
-                </select>
+                </select><br>
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" name="username" required>
+                <input type="text" name="username" required><br>
                 <label for="password">Mot de passe</label>
                 <input type="password" name="password" required>
                 <button type="submit">Envoi</button>
             </form>
         </section>
+        <footer>
+        <hr>
+        <ul>
+            <li><p><a href="./projet.php">Gestion de projet</a></p></li>
+            <li><p><a href="./adminPageOverview.php">Accès administrateur</a></p></li>
+            <li><p><a href="./gestionnairePageOverview.php">Accès gestionnaire</a></p></li>
+            <li><p><a href="./index.php">Accueil</a></p></li>
+            <li><p><a href="./publicViewData.php">Mesures publiques</a></p></li>
+        </ul>
+    </footer>
     </body>
     <script src="./js/error.js"></script>
+    <script src="./js/fonts.js"></script>
 </html>

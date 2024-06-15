@@ -21,11 +21,10 @@
     $sensorunit = $_POST["sensorunit"];
     $room = $_POST["room"];
 
-    $id_bd = mysqli_connect("127.0.0.1", "proc", "prod", "sae23");
-    mysqli_query($id_bd, "SET NAMES 'utf8'");
+    include('mysql.php');
     mysqli_query($id_bd, "INSERT INTO capteurs (nom_capteur, type, unite, ref_salle) VALUES ('".$_POST['sensorname']."' , '".$_POST['sensortype']."' ,'".$_POST['sensorunit']."', '".$room."')");
     mysqli_close($id_bd);
-    exec("(crontab -l; echo '*/10 * * * * /var/www/html/fetchMQTTbyRoom.sh $room $sensortype $sensorname') | crontab -");
+    exec("(crontab -l; echo '*/10 * * * * /var/www/html/fetchMQTTbyRoom.sh '$room' '$sensortype' '$sensorname) | crontab -");
     header('Location: adminPageOverview.php');
     die();
 ?>

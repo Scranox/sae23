@@ -1,6 +1,12 @@
-<?php 
+<?php
 
 session_start();
+
+if(!isset($_SESSION["authenticatedManager"])){
+    //echo "<script type='text/javascript'>document.location.replace('loginFormAdmin.php');</script>";
+    header('Location: loginGestionnaire.php');
+    die();
+}
 
 ?>
 
@@ -15,16 +21,21 @@ session_start();
 </head>
 <body>
     <header>
+        <button id="changeFontBtn">Changer la police vers OpenDyslexic</button>
+        <?php 
+            if(isset($_SESSION["authenticated"]) || isset($_SESSION["authenticatedManager"])){
+                echo '<button onclick="location.href = '.'`/logout.php`'.'" id="logoutBtn">Se déconnecter</button>';
+            }
+        ?>
         <br><hr><h1>Gestion bâtiment</h1><hr><br>
     </header>
     <ul class="buildings">
-        
-        <?php 
-        
-            $id_bd = mysqli_connect("127.0.0.1", "proc", "prod", "sae23");
-            mysqli_query($id_bd, "SET NAMES 'utf8'");
+
+        <?php
+
+            include('mysql.php');
             $result = mysqli_query($id_bd, 'SELECT * FROM batiments WHERE lettre_bat = "'.$_SESSION["building"].'"');
-            
+
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<li class="building">';
@@ -37,7 +48,7 @@ session_start();
                     echo '<ul class="sensors">';
                     $resultSensors = mysqli_query($id_bd, 'SELECT * FROM `capteurs` WHERE ref_salle = "'.$rowRoom['nom_salle'].'"');
                     while ($rowSensors = mysqli_fetch_assoc($resultSensors)){
-                        $lastMeasure = mysqli_query($id_bd, 'SELECT * FROM `mesures` WHERE ref_capteur = "'.$rowSensors['nom_capteur'].'"');
+                        $lastMeasure = mysqli_query($id_bd, 'SELECT * FROM `mesures` WHERE ref_capteur = "'.$rowSensors['nom_capteur'].'" ORDER BY id DESC LIMIT 30');
                         $lastMeasureData = mysqli_fetch_assoc($lastMeasure);
                         if (!empty($lastMeasureData)){
                             echo '<li>';
@@ -93,7 +104,7 @@ session_start();
                             echo '</li>';
                             echo '</ul>';
                             echo '</li>';
-                        }      
+                        }
                     }
                     echo '</ul>';
                     echo '</li>';
@@ -103,18 +114,18 @@ session_start();
             }
 
             mysqli_close($id_bd);
-        
         ?>
     </ul>
     <footer>
         <hr>
         <ul>
-            <li id="footerleft"><p><a href="./projet.php">Gestion de projet</a></p></li>
-            <li id="footercenter"><p><a href="./adminPageOverview.php">Accès administrateur</a></p></li>
-            <li id="footerright"><p><a href="./loginGestionnaire.php">Accès gestionnaire</a></p></li>
+            <li><p><a href="./projet.php">Gestion de projet</a></p></li>
+            <li><p><a href="./adminPageOverview.php">Accès administrateur</a></p></li>
+            <li><p><a href="./gestionnairePageOverview.php">Accès gestionnaire</a></p></li>
+            <li><p><a href="./index.php">Accueil</a></p></li>
+            <li><p><a href="./publicViewData.php">Mesures publiques</a></p></li>
         </ul>
     </footer>
-
     <script src="./js/fonts.js"></script>
 </body>
 </html>

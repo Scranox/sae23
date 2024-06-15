@@ -69,6 +69,17 @@ h1{
     text-align: center;
 }
 
+#submitBtn{
+        background-color: #151c27;
+        color: #DDDDDD;
+        text-decoration: none;
+        margin-right: 5px;
+        border-radius: 25px;
+        border: 1px solid #DDDDDD;
+        border-right: none;
+        float:left;
+}
+
 #changeFontBtn{
 	display: block;
 	background-color: #151c27;
@@ -80,6 +91,24 @@ h1{
 	border: 1px solid #DDDDDD;
 	border-right: none;
 	float:right;
+}
+
+#logoutBtn{
+	display: block;
+	background-color: #151c27;
+	color: #DDDDDD;
+	text-align: center;
+	text-decoration: none;
+	margin-right: 5px;
+	border-radius: 25px;
+	border: 1px solid #DDDDDD;
+	border-right: none;
+	float:right;
+}
+
+#logoutBtn:hover{
+	background-color: #DDDDDD;
+	color: #151c27;
 }
 
 #changeFontBtn:hover{
@@ -110,6 +139,9 @@ footer ul{
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	justify-items: center;
 }
 
 footer ul li{	

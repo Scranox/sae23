@@ -21,8 +21,7 @@
     $roomcapacity = $_POST["roomcapacity"];
     $building = $_POST["building"];
 
-    $id_bd = mysqli_connect("127.0.0.1", "proc", "prod", "sae23");
-    mysqli_query($id_bd, "SET NAMES 'utf8'");
+    include('mysql.php');
     mysqli_query($id_bd, "INSERT INTO salles (nom_salle, type, capacite, ref_batiment) VALUES ('".$_POST['roomname']."' , '".$_POST['roomtype']."' ,'".$_POST['roomcapacity']."', '".$building."')");
     mysqli_close($id_bd);  
     header('Location: adminPageOverview.php');

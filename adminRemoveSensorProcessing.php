@@ -10,20 +10,18 @@
         die();
     }
 
-    if(!isset($_POST["batletter"]) && !isset($_POST["batname"]) && !isset($_POST["batuser"]) && !isset($_POST["batpassword"])){
+    if(!isset($_POST["sensorname"]) && !isset($_POST["sensortype"]) && !isset($_POST["sensorunit"])){
         //echo "<script type='text/javascript'>document.location.replace('loginFormAdmin.php');</script>";
         header('Location: adminPageOverview.php');
         die();
     }
 
-    $letter = $_POST["batletter"];
-    $batname = $_POST["batname"];
-    $batuser = $_POST["batuser"];
-    $batpassword = $_POST["batpassword"];
+    $sensorname = $_POST["sensorname"];
 
     include('mysql.php');
-    mysqli_query($id_bd, "INSERT INTO batiments (lettre_bat, nom, utilisateur, mdp) VALUES ('".$_POST['batletter']."' , '".$_POST['batname']."' ,'".$_POST['batuser']."' , '".$_POST['batpassword']."')");
-    mysqli_close($id_bd);  
+    mysqli_query($id_bd, 'DELETE FROM mesures WHERE ref_capteur = "'.$sensorname.'"');
+    mysqli_query($id_bd, 'DELETE FROM capteurs WHERE nom_capteur = "'.$sensorname.'"');
+    mysqli_close($id_bd);
     header('Location: adminPageOverview.php');
     die();
 ?>

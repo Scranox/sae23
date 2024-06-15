@@ -18,15 +18,19 @@
 </head>
 <body>
     <header>
-        <br><hr><h1>SAÉ 23</h1><hr><br>
+        <button id="changeFontBtn">Changer la police vers OpenDyslexic</button>
+        <?php 
+            if(isset($_SESSION["authenticated"]) || isset($_SESSION["authenticatedManager"])){
+                echo '<button onclick="location.href = '.'`/logout.php`'.'" id="logoutBtn">Se déconnecter</button>';
+            }
+        ?>
+        <br><hr><h1>Salles</h1><hr><br>
     </header>
     <section class="buildings">
-        <h1>Liste des salles du bâtiment</h1>
         <ul>
             <?php 
             
-            $id_bd = mysqli_connect("127.0.0.1", "proc", "prod", "sae23");
-            mysqli_query($id_bd, "SET NAMES 'utf8'");
+            include('mysql.php');
             $result = mysqli_query($id_bd, 'SELECT * FROM salles WHERE ref_batiment = "'.$_GET["building"].'"');
             
 
@@ -58,9 +62,11 @@
     <footer>
         <hr>
         <ul>
-            <li id="footerleft"><p><a href="./projet.php">Gestion de projet</a></p></li>
-            <li id="footercenter"><p><a href="./adminPageOverview.php">Accès administrateur</a></p></li>
-            <li id="footerright"><p><a href="./loginGestionnaire.html">Accès gestionnaire</a></p></li>
+            <li><p><a href="./projet.php">Gestion de projet</a></p></li>
+            <li><p><a href="./adminPageOverview.php">Accès administrateur</a></p></li>
+            <li><p><a href="./gestionnairePageOverview.php">Accès gestionnaire</a></p></li>
+            <li><p><a href="./index.php">Accueil</a></p></li>
+            <li><p><a href="./publicViewData.php">Mesures publiques</a></p></li>
         </ul>
     </footer>
 
