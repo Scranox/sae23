@@ -26,7 +26,7 @@
                 echo '<button onclick="location.href = '.'`/logout.php`'.'" id="logoutBtn">Se déconnecter</button>';
             }
         ?>
-        <br><hr><h1>SAÉ 23</h1><hr><br>
+        <br><hr><h1>Ajouter un nouveau bâtiment</h1><hr><br>
     </header>
     <form method="post" action="adminAddNewBuildingProcessing.php" id="addNewBuilding">
         <label for="batletter">Lettre du bâtiment</label>

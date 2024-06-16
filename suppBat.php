@@ -25,7 +25,7 @@
                 echo '<button onclick="location.href = '.'`/logout.php`'.'" id="logoutBtn">Se déconnecter</button>';
             }
         ?>
-        <br><hr><h1>Bâtiment à supprimer</h1><hr><br>
+        <br><hr><h1>Supprimer un bâtiment</h1><hr><br>
     </header>
     <form method="post" action="adminRemoveBatProcessing.php" id="addNewBuilding">
         <label for="batname">Bâtiment à supprimer</label>

@@ -128,6 +128,21 @@ h1{
 	padding-bottom: 5px;
 }
 
+#termsList{
+	list-style-type:upper-roman;
+	font-size: x-large;
+}
+  
+	.termsCenter{
+		list-style-type: none;
+		font-size: medium;
+	}
+
+	.termsTitle{
+		font-size: x-large;
+		text-align: left;
+	}
+
 footer{
 	margin-top: auto;
 	bottom: 0;
